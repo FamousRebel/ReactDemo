@@ -6,10 +6,12 @@ class Item extends Component {
         super(props);
     }
     render() {
+        const {name,done} = this.props;
         return (
             <li>
                 <svg
                     t="1639238384140"
+                    className={done ? 'iconTrue' : 'iconFalse'}
                     viewBox="0 0 1024 1024"
                     version="1.1"
                     xmlns="http://www.w3.org/2000/svg"
@@ -19,11 +21,16 @@ class Item extends Component {
                         d="M741.216 344a32 32 0 0 1 46.816 43.616l-315.296 338.208a32 32 0 0 1-43.968 2.688l-193.344-162.368a32 32 0 1 1 41.152-48.992l170.08 142.816 294.56-316z"
                         p-id="4886"
                         fill= '#fff'
+                        style={{display:done? 'block' : 'none'}}
                     >
                     </path>
                 </svg>
-                <span></span>
-                <span></span>
+                <span
+                    className={done ? 'completeTrue' : 'completeFalse'}>
+                    {name}
+                </span>
+                <span>
+                </span>
                 <button>
                     删除
                 </button>
