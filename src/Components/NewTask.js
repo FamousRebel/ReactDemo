@@ -64,11 +64,33 @@ class NewTask extends Component{
         if(this.boxText.value === '')
             alert("添加任务不能为空");
         else {
+            //任务分组  先判定分组跟标签两个是否都存在，然后在一次判定分组和标签是否存在，不在则按value值输出
+            let nameValue1 =
+                RegExp(/#/).test(this.boxText.value) ?
+                    this.boxText.value.match(/(?<=#)(\S+)/)[0].match(/(?<=#)(\S+)/)[0] :
+                    this.boxText.value;
+
+            //判断是否有#存在，有就拿##之间的值，没有就为null
+            let tagValue =
+                RegExp(/#/).test(this.boxText.value) ?
+                this.boxText.value.match(/(?<=#).*?(?=#)/)[0] : null;
+
+            // 防止有空字符,使得标签显示
+            if (tagValue === "")
+                tagValue = null;
+
+            // 当tag有值的时候,将tagDone的状态进行更改,使标签显示
+            let tagDoneValue = false;
+            if(tagValue != null)
+                tagDoneValue = true;
+
             // 创建对象
             const listObj = {
                 id: (this.props.len+1)+this.boxText.value,
-                name: this.boxText.value,
-                done: false
+                name: nameValue1,
+                done: false,
+                tag:tagValue,
+                tagDone:tagDoneValue
             }
 
             console.log(listObj);

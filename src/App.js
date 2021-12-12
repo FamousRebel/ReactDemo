@@ -11,13 +11,13 @@ class App extends Component{
         // 初始化
         this.state= {
             list: [
-                {id: '1学习React技术', name: '学习React技术', done: true, grouping: '未分组'},
-                {id: '2学习后端API', name: '学习后端API', done: false, grouping: '未分组'},
-                {id: '3完成任务列表', name: '完成任务列表', done: false, grouping: '明天'},
-                {id: '4完成删除任务', name: '完成删除任务', done: false, grouping: '明天'},
-                {id: '5完成搜索任务', name: '完成搜索任务', done: false, grouping: '明天'},
-                {id: '6完成任务分租', name: '完成任务分租', done: false, grouping: '明天'},
-                {id: '7完成任务打标签', name: '完成任务打标签', done: false, grouping: '明天'},
+                {id: '1学习React技术', name: '学习React技术', done: true, grouping: '未分组', tag: '紧急', tagDone:true},
+                {id: '2学习后端API', name: '学习后端API', done: false, grouping: '未分组', tag: null, tagDone:false},
+                {id: '3完成任务列表', name: '完成任务列表', done: false, grouping: '明天', tag: null, tagDone:false},
+                {id: '4完成删除任务', name: '完成删除任务', done: false, grouping: '明天', tag: null, tagDone:false},
+                {id: '5完成搜索任务', name: '完成搜索任务', done: false, grouping: '明天', tag: null, tagDone:false},
+                {id: '6完成任务分租', name: '完成任务分租', done: false, grouping: '明天', tag: null, tagDone:false},
+                {id: '7完成任务打标签', name: '完成任务打标签', done: false, grouping: '明天', tag: null, tagDone:false},
             ],
             group:['未分组','明天'],
         }
