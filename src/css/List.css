@@ -1,0 +1,9 @@
+.listBox{
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+.listBox .boxSpan{
+    width: 108px;
+}
