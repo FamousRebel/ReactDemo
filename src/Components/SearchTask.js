@@ -28,9 +28,6 @@ class SearchTask extends Component{
         if (event.key === 'Enter') {
             return search(event.target.value);
         }
-
-
-
     }
 }
 export default SearchTask;

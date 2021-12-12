@@ -66,14 +66,27 @@ class NewTask extends Component{
         else {
             //任务分组  先判定分组跟标签两个是否都存在，然后在一次判定分组和标签是否存在，不在则按value值输出
             let nameValue1 =
+                RegExp(/(\$#)/).test(this.boxText.value) ?
+                    this.boxText.value.match(/(?<=#)(\S+)/)[0].match(/(?<=#)(\S+)/)[0] :
+                RegExp(/\$/).test(this.boxText.value) ?
+                    this.boxText.value.match(/(?<=\$)(\S+)/)[0].match(/(?<=\$)(\S+)/)[0] :
                 RegExp(/#/).test(this.boxText.value) ?
                     this.boxText.value.match(/(?<=#)(\S+)/)[0].match(/(?<=#)(\S+)/)[0] :
                     this.boxText.value;
+
+            //判断是否有$存在，有就拿$$之间的值,没有就为未分组
+            let groupingValue =
+                RegExp(/\$/).test(this.boxText.value) ?
+                this.boxText.value.match(/(?<=\$).*?(?=\$)/)[0] : '未分组';
 
             //判断是否有#存在，有就拿##之间的值，没有就为null
             let tagValue =
                 RegExp(/#/).test(this.boxText.value) ?
                 this.boxText.value.match(/(?<=#).*?(?=#)/)[0] : null;
+
+            //防止有空字符
+            if (groupingValue === "")
+                groupingValue = '未分组';
 
             // 防止有空字符,使得标签显示
             if (tagValue === "")
@@ -89,6 +102,7 @@ class NewTask extends Component{
                 id: (this.props.len+1)+this.boxText.value,
                 name: nameValue1,
                 done: false,
+                grouping:groupingValue,
                 tag:tagValue,
                 tagDone:tagDoneValue
             }
