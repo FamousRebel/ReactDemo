@@ -15,22 +15,10 @@ class SearchTask extends Component{
                     <input
                         type="txt"
                         placeholder="输入关键词,回车进行搜索"
-                        onKeyUp={this.enterKeyUp}
                     />
                 </label>
             </div>
         );
-    }
-
-    enterKeyUp(event){
-        const {search} = this.props;
-        // 判定按下按键是否为回车按键
-        if (event.key === 'Enter') {
-            return search(event.target.value);
-        }
-
-
-
     }
 }
 export default SearchTask;
