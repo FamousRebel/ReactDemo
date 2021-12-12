@@ -8,6 +8,7 @@ class NewTask extends Component{
         this.state = {
             showElem:true
         }
+        // this.inputChange = this.inputChange.bind(this);
         this.addList = this.addList.bind(this);
         this.showBox = this.showBox.bind(this);
     }

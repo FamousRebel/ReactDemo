@@ -105,5 +105,26 @@ class App extends Component{
             group:this.state.group
         })
     }
+
+    search(Value){
+        console.log(Value);
+        const {list} = this.state;
+        // 将要搜索的内容进行遍历查询
+        list.filter(valueItem => valueItem.name.indexOf(Value) !== -1)
+            .map(v => {
+                let re = new RegExp(Value,"g");
+                return (
+                    // 通过正则给要搜索的内容套个svg标签
+                    v.name = v.name.replace(re,`<span class="keyHigh">${Value}</span>`),
+                        console.log(v),
+                        // 数据更新
+                        this.setState({
+                            list:[...list]
+                        })
+                )
+            })
+
+        // 一个问题,当搜索内容时,只能搜索一次,第二次的时候,第一次的标签还存在
+    }
 }
 export default App;
