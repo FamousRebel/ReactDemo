@@ -1,4 +1,5 @@
 import React,{Component} from "react";
+import PropTypes from 'prop-types'
 import "../css/NewTask.css"
 
 class NewTask extends Component{
@@ -33,8 +34,10 @@ class NewTask extends Component{
                     <label>
                         新建任务:
                         <input
+                            ref={c => this.boxText = c}
                             className="boxText"
                             type="text"
+                            placeholder="可选($分组$,#标签#)输入任务"
                         />
                     </label>
 
@@ -55,11 +58,32 @@ class NewTask extends Component{
         })
     }
     addList(){
-        // 控制控件之间的显示和隐藏
-        this.setState({
-            showElem:!this.state.showElem
-        })
+
+        // 判断是否为空
+        if(this.boxText.value === '')
+            alert("添加任务不能为空");
+        else {
+            // 创建对象
+            const listObj = {
+                id: (this.props.len+1)+this.boxText.value,
+                name: this.boxText.value,
+                done: false
+            }
+
+            console.log(listObj);
+            this.props.addItem(listObj);
+            this.boxText.value = '';
+            // 控制控件之间的显示和隐藏
+            this.setState({
+                showElem:!this.state.showElem
+            })
+        }
     }
+}
+
+NewTask.propTypesr = {
+    addItem:PropTypes.func.isRequired,
+    len:PropTypes.number
 }
 
 export default NewTask;

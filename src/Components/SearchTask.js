@@ -4,7 +4,6 @@ import "../css/SearchTask.css"
 class SearchTask extends Component{
     constructor(props) {
         super(props);
-        this.enterKeyUp = this.enterKeyUp.bind(this);
     }
     render() {
         return(
