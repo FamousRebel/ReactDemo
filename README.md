@@ -3,9 +3,9 @@
 
 ***
 
-##启动
+## 启动
 
-####React脚手架
+#### React脚手架
 
 `create-react-app`
 
@@ -35,7 +35,7 @@ npm : `8.2.0`
 
 ***
 
-##文件说明
+## 文件说明
 
 index.js 入口 
 
@@ -51,7 +51,7 @@ TaskSituation.js 任务总数及任务完成数
 
 ***
 
-##讨论
+## 讨论
 - Github FamousRebel
 - Telephone 19157681514
 - E-mail 1305761601@qq.com
